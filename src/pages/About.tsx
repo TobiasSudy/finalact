@@ -1,6 +1,5 @@
 import '../css/About.css';
 import ich from '../assets/Ich.jpg';
-import logo from '../assets/Kochlogo.png'
 
 function About() {
     return (
