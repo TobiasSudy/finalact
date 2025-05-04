@@ -1,0 +1,169 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #88ab8e
+  no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* Alle Hauptcontainer liegen über dem Overlay */
+#root, .App, .navbar, .hero, .home-container {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* Textfarbe global auf weiß */
+p, h1, h2, h3, a {
+  color: #ffffff;
+}
+
+/* Zusätzliche Stile für Rezept-Seite */
+
+/* Rezeptseite */
+.recipes-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Rezeptkarte */
+.recipe-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  /*transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+  margin-bottom: 2rem;
+}
+.recipe-card img {
+  width: 280px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/*.recipe-card:hover {*/
+/*  transform: scale(1.05);*/
+/*  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);*/
+/*}*/
+
+/* Rezeptbild */
+.recipe-card img {
+  width: 200px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Rezepttitel */
+.recipe-card h2 {
+  font-size: 2rem;
+  color: #88ab8e;
+  margin: 1rem 0;
+}
+
+/* Rezeptzeit und Zutaten */
+.recipe-card p {
+  font-size: 1.2rem;
+  color: #88ab8e;
+}
+
+/* Kommentarbereich */
+.recipe-card textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 1rem;
+  resize: vertical;
+}
+
+.recipe-card button {
+  background-color: #88ab8e;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.recipe-card button:hover {
+  background-color: #45a049;
+}
+
+/* Kommentar-Liste */
+.recipe-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.recipe-card li {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Suchleiste und Filterbereich */
+.search-bar, .filter-panel {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1.1rem;
+}
+
+.filter-panel label {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.share-buttons a:hover {
+  background-color: #45a049;
+}
+
+/* Responsiv für mobile Geräte */
+@media (max-width: 768px) {
+  .recipe-list {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar input {
+    width: 80%;
+  }
+
+  .filter-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+}
