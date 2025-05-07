@@ -1,7 +1,8 @@
 import {useState} from "react";
+import '../css/Recipes.css'
 import recipes from "../data/recipes.ts";
 import RecipeCard from "./RecipeCard.tsx";
-import SearchBar from "./SearchBar.tsx";
+import SearchBar, {SearchFilterContainer} from "./SearchBar.tsx";
 import FilterPanel from "./FilterPanel.tsx";
 
 
@@ -31,14 +32,17 @@ function Recipes() {
     });
 
     return (
-        <div>
-            <h1 className={"allRecipes"}>All Recipes</h1>
-            <SearchBar searchQuery={searchQuery} onSearch={setSearchQuery} />
-            <FilterPanel
-                filters={allTags}
-                selectedFilters={selectedFilters}
-                onToggleFilter={toggleFilter}
-            />
+        <div className="recipes-container">
+            <h1 className="recipes-title">All Recipes</h1>
+
+            <SearchFilterContainer>
+                <SearchBar searchQuery={searchQuery} onSearch={setSearchQuery} />
+                <FilterPanel
+                    filters={allTags}
+                    selectedFilters={selectedFilters}
+                    onToggleFilter={toggleFilter}
+                />
+            </SearchFilterContainer>
 
             <div className="recipe-list">
                 {filteredRecipes.map((recipe) => (

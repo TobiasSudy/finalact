@@ -1,110 +1,237 @@
-/* Rezeptseiten-Layout */
-.recipe-page {
-    color: #88ab8e;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Rezeptbild */
-.recipe-image {
-    width: 300px;
-    height: 300px; /* feste Höhe hinzufügen */
-    object-fit: cover; /* sorgt für sauberen Bildzuschnitt */
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    margin: 0.5rem;
-}
-
-
-/* Rezepttitel */
-.allRecipes{
+/* Recipe Page Styles */
+.recipe-container {
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
     color: #ffffff;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #88ab8e;
-    margin-bottom: 1.5rem;
+.recipe-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eaeaea;
 }
 
-/* Zutatenliste */
-p, ul, li, h2 {
-    color:  #88ab8e;
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 1.5rem 0;
+.recipe-title {
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-ul li {
+.recipe-time {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-/* Kommentarbereich */
-.comment-section {
+.recipe-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.recipe-main-image {
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.recipe-main-image:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1c40f;
+    display: inline-block;
+}
+
+.ingredients-list {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ingredient-item {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.ingredient-bullet {
+    color: #f1c40f;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.steps-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    gap: 20px;
 }
 
-textarea {
-    width: 80%; /* oder z. B. max-width: 600px für bessere Kontrolle */
-    padding: 1rem;
+.step-card {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    align-items: flex-start;
+}
+
+.step-number {
+    background: #f1c40f;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.step-text {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+.comments-section {
+    grid-column: span 2;
+    margin-top: 40px;
+}
+
+.comment-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.comment-textarea {
+    width: 100%;
+    padding: 15px;
     border: 1px solid #ddd;
-    margin-top: 1rem;
+    border-radius: 8px;
+    min-height: 100px;
     font-family: inherit;
     font-size: 1rem;
     resize: vertical;
+    transition: border 0.3s ease;
 }
 
+.comment-textarea:focus {
+    outline: none;
+    border-color: #f1c40f;
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.2);
+}
 
-/* Kommentar-Button */
-button {
-    background-color: #4CAF50;
+.comment-button {
+    align-self: flex-end;
+    background: #f1c40f;
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Kommentar-Liste */
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 1rem;
-}
-
-ul li {
-    background-color: #f9f9f9;
-    padding: 1rem;
+    border: none;
+    padding: 12px 25px;
     border-radius: 8px;
-    margin-bottom: 1rem;
     font-size: 1rem;
-    color: #555;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Abstand zwischen Navbar und den Seiteninhalten */
-.recipe-page, .home-container {
-    margin-top: 60px; /* Je nachdem, wie hoch deine Navbar ist */
+.comment-button:hover {
+    background: #f39c12;
+    transform: translateY(-2px);
 }
-img {
-    width: 280px;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment-card {
+    display: flex;
+    gap: 15px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.comment-avatar {
+    background: #ecf0f1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.comment-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #34495e;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .recipe-content {
+        grid-template-columns: 1fr;
+    }
+
+    .comments-section {
+        grid-column: span 1;
+    }
+
+    .recipe-images {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .recipe-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .step-card {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

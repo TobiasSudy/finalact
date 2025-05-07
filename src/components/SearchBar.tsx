@@ -1,9 +1,11 @@
-type Props = {
+import * as React from "react";
+
+type SearchProps = {
     searchQuery: string;
     onSearch: (value: string) => void;
 };
 
-function SearchBar({ searchQuery, onSearch }: Props) {
+function SearchBar({ searchQuery, onSearch }: SearchProps) {
     return (
         <div className="search-bar">
             <input
@@ -15,5 +17,11 @@ function SearchBar({ searchQuery, onSearch }: Props) {
         </div>
     );
 }
+
+// Container component to wrap both
+export function SearchFilterContainer({ children }: { children: React.ReactNode }) {
+    return <div className="search-container">{children}</div>;
+}
+
 
 export default SearchBar;

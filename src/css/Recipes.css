@@ -1,0 +1,75 @@
+/* Main container */
+.recipes-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Title styling */
+.recipes-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.recipes-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #6366f1;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Search and filter wrapper */
+.search-filter-wrapper {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 2.5rem;
+}
+
+/* Recipe list grid */
+.recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Empty state */
+.recipe-list:empty::after {
+    content: 'No recipes found. Try adjusting your search or filters.';
+    display: block;
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #64748b;
+    padding: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .recipes-title {
+        font-size: 2rem;
+    }
+
+    .recipe-list {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .search-filter-wrapper {
+        padding: 1rem;
+    }
+
+    .filter-panel {
+        justify-content: flex-start;
+    }
+}

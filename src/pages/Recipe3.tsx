@@ -1,28 +1,25 @@
+import recipe3 from '../assets/rezept3.jpg'
+import {useState} from "react";
 
-import { useState } from 'react';
-import '../css/RecipePage.css';
-import recipe1 from '../assets/recipe1.jpg'
-
-// Beispiel-Daten für Rezept 1
 const recipeData = {
-    id: '1',
-    title: 'Salmon with wild garlic risotto',
-    time: 35, // in Minuten
-    ingredients: ['Salmons', 'Wild garlic leafs', 'Basil pesto', 'Rama cremefine',
-        'Risotto', 'Onion' ,'Salt', 'Vegetable broth', 'Butter', 'white wine',  'Spices of your choice'],
-    instructions: 'Prepare a pan with oil each for the risotto (here also the butter) and the salmon. Also prepare a small pan for the vegetable broth.\n' +
-        'Warm up the vegetable broth. Put in the cut onions in the risotto pan and sweat them a little.'+
-        'Now put the risotto rice to that and roast it 2-3 minutes. ' +
-        'Then put the white wine and a portion of the vegetable broth in it.\n' +
-        'Rost the salmons and when they are put in the rama cremefine and the basil pesto. Season the sauce as you want.' +
-        'For example, I seasoned the sauce with salt, pepper, a little of chilli and a specific soup seasoning.\n' +
-        'Keep adding broth to the rice until it has absorbed all the broth. After 15-20 minutes the rice should be ready to be eaten.\n' +
-        'Now just add the cut leaves and the remaining butter. Season the rice with salt and pepper and if you want you can put in parmesan.\n' +
-        'Prepare the dish and enjoy.',
-    image: recipe1,
-};
+    id: 3,
+    title: "Pasta with ham and tomato sauce",
+    time: '20-25',
+    ingredients: ['Pasta', 'Ham', 'Tomato Sugo (Sauce)', 'Salsa Sauce', 'Cayenne Pepper', 'Onions', 'Paprika powder', 'spring onions'],
+    instructions: 'Bring a large pot of salted water to boil for the pasta. Cook the pasta according to package instructions until al dente.\n' +
+        'While the pasta cooks, dice the onions and slice the ham into thin strips. Thinly slice the spring onions for garnish.\n' +
+        'Heat some oil in a large pan over medium heat. Add the diced onions and sauté until translucent (about 3-4 minutes).\n' +
+        'Add the ham to the pan and cook for 2-3 minutes until slightly browned. Season with paprika powder and a pinch of cayenne pepper for heat.\n' +
+        'Pour in the tomato sugo and salsa sauce. Stir well and let the sauce simmer for 5-7 minutes to allow flavors to combine.\n' +
+        'Drain the cooked pasta, reserving about 1/2 cup of pasta water. Add the pasta to the sauce in the pan, tossing to coat evenly.\n' +
+        'If the sauce seems too thick, add a splash of the reserved pasta water to reach your desired consistency.\n' +
+        'Garnish with sliced spring onions and serve immediately. For extra flavor, you can add grated Parmesan cheese on top.\n' +
+        'Enjoy your delicious pasta dish!',
+    image: recipe3,
+}
 
-function Recipe1() {
+function Recipe3() {
+
     const [comments, setComments] = useState<string[]>([]);
     const [newComment, setNewComment] = useState<string>('');
 
@@ -34,7 +31,6 @@ function Recipe1() {
     };
 
     return (
-
         <div className="recipe-page">
             <div className="recipe-container">
                 <div className="recipe-header">
@@ -98,4 +94,4 @@ function Recipe1() {
     );
 }
 
-export default Recipe1;
+export default Recipe3;
