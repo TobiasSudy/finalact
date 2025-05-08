@@ -48,20 +48,16 @@ p, h1, h2, h3, a {
   /*transition: transform 0.3s ease, box-shadow 0.3s ease;*/
   margin-bottom: 2rem;
 }
-.recipe-card img {
-  width: 280px;
-  height: auto;
+
+/* Rezeptbild */
+.recipe-card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Rezeptbild */
-.recipe-card img {
-  width: 200px;
-  height: auto;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
 
 /* Rezepttitel */
 .recipe-card h2 {
