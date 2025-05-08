@@ -4,7 +4,7 @@ import logo from '../assets/Kochlogo.png';
 import human from '../assets/human.jpg';
 import recipe1 from '../assets/lachs.png';
 import recipe2 from '../assets/sandwich.png';
-import logo3 from '../assets/logo3.png';
+import recipe3 from '../assets/logo3.png';
 import allRecipes from '../assets/allrecipes.png';
 
 function Navbar() {
@@ -29,7 +29,7 @@ function Navbar() {
                         <span className="nav-icon-tooltip">Sandwich</span>
                     </Link>
                     <Link to="/recipe3" className="nav-icon">
-                        <img src={logo3} alt="Recipe 3" className="nav-icon-img" />
+                        <img src={recipe3} alt="Recipe 3" className="nav-icon-img" />
                         <span className="nav-icon-tooltip">Recipe 3</span>
                     </Link>
                     <Link to="/recipes" className="nav-icon">
