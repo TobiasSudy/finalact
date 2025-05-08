@@ -1,6 +1,7 @@
 {
   "name": "my-recipe-site",
   "private": true,
+  "homepage": "https://tobiassudy.github.io/finalact",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
