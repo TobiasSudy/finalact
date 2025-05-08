@@ -4,8 +4,8 @@ import logo from '../assets/Kochlogo.png';
 import human from '../assets/human.jpg';
 import recipe1 from '../assets/lachs.png';
 import recipe2 from '../assets/sandwich.png';
-import allRecipes from '../assets/allrecipes.png';
 import logo3 from '../assets/logo3.png';
+import allRecipes from '../assets/allrecipes.png';
 
 function Navbar() {
     return (
