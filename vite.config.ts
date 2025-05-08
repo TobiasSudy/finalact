@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
+// Vercel uses the root path for deployments
 export default defineConfig({
-  base: '/finalact/',
+  base: '/',  // Make sure this is set to '/'
   plugins: [react()],
-})
+});
+
