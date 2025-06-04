@@ -1,11 +1,11 @@
+// src/components/Navbar.tsx
 import { Link } from "react-router-dom";
 import '../css/Navbar.css';
 import logo from '../assets/Kochlogo.png';
 import human from '../assets/human.jpg';
-import recipe1 from '../assets/lachs.png';
-import recipe2 from '../assets/sandwich.png';
-import recipe3 from '../assets/logo3.png';
 import allRecipes from '../assets/allrecipes.png';
+import { recipes } from '../data/recipes';
+import addRecipeIcon from '../assets/addrecipe.png'
 
 function Navbar() {
     return (
@@ -20,18 +20,24 @@ function Navbar() {
                         <img src={human} alt="About" className="nav-icon-img" />
                         <span className="nav-icon-tooltip">About</span>
                     </Link>
-                    <Link to="/recipe1" className="nav-icon">
-                        <img src={recipe1} alt="Recipe 1" className="nav-icon-img" />
-                        <span className="nav-icon-tooltip">Lachs</span>
+
+                    {recipes.map(recipe => (
+                        <Link
+                            to={`/recipe/${recipe.id}`}
+                            className="nav-icon"
+                            key={recipe.id}
+                        >
+                            <img src={recipe.icon} alt={recipe.title} className="nav-icon-img" />
+                            <span className="nav-icon-tooltip">{recipe.title}</span>
+                        </Link>
+                    ))}
+
+
+                    <Link to="/add-recipe" className="nav-icon">
+                        <img src={addRecipeIcon} alt="Add Recipe" className="nav-icon-img" />
+                        <span className="nav-icon-tooltip">Add Recipe</span>
                     </Link>
-                    <Link to="/recipe2" className="nav-icon">
-                        <img src={recipe2} alt="Recipe 2" className="nav-icon-img" />
-                        <span className="nav-icon-tooltip">Sandwich</span>
-                    </Link>
-                    <Link to="/recipe3" className="nav-icon">
-                        <img src={recipe3} alt="Recipe 3" className="nav-icon-img" />
-                        <span className="nav-icon-tooltip">Recipe 3</span>
-                    </Link>
+
                     <Link to="/recipes" className="nav-icon">
                         <img src={allRecipes} alt="All Recipes" className="nav-icon-img" />
                         <span className="nav-icon-tooltip">All Recipes</span>

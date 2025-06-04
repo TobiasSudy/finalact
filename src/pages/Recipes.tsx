@@ -1,17 +1,18 @@
-import {useState} from "react";
-import '../css/Recipes.css'
-import recipes from "../data/recipes.ts";
-import RecipeCard from "./RecipeCard.tsx";
-import SearchBar, {SearchFilterContainer} from "./SearchBar.tsx";
-import FilterPanel from "./FilterPanel.tsx";
-
+import { useState } from "react";
+import '../css/Recipes.css';
+import { recipes } from "../data/recipes.ts";
+import RecipeCard from "../components/RecipeCard.tsx";
+import SearchBar, { SearchFilterContainer } from "../components/SearchBar.tsx";
+import FilterPanel from "../components/FilterPanel.tsx";
 
 function Recipes() {
-
-    const [searchQuery, setSearchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState<string| undefined>("");
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
-    const allTags = ["fish", "under30", "meat", "lunch", "dinner" , "snack"];
+    // Extract all unique tags from recipes
+    const allTags = Array.from(
+        new Set(recipes.flatMap(recipe => recipe.tags || []))
+    ).sort();
 
     const toggleFilter = (tag: string) => {
         setSelectedFilters((prev) =>
@@ -20,14 +21,19 @@ function Recipes() {
     };
 
     const filteredRecipes = recipes.filter((recipe) => {
+        // Search matching logic
         const matchesSearch =
             recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            recipe.ingredients.some((i) =>
-                i.toLowerCase().includes(searchQuery.toLowerCase())
+            recipe.ingredients.some(ingredient =>
+                ingredient.name.toLowerCase().includes(searchQuery.toLowerCase())
             );
+
+        // Filter matching logic
         const matchesFilter =
             selectedFilters.length === 0 ||
-            selectedFilters.every((tag) => recipe.tags.includes(tag));
+            (recipe.tags && selectedFilters.every(tag =>
+                recipe.tags?.includes(tag)));
+
         return matchesSearch && matchesFilter;
     });
 
@@ -36,7 +42,10 @@ function Recipes() {
             <h1 className="recipes-title">All Recipes</h1>
 
             <SearchFilterContainer>
-                <SearchBar searchQuery={searchQuery} onSearch={setSearchQuery} />
+                <SearchBar
+                    searchQuery={searchQuery}
+                    onSearch={setSearchQuery}
+                />
                 <FilterPanel
                     filters={allTags}
                     selectedFilters={selectedFilters}
@@ -46,7 +55,10 @@ function Recipes() {
 
             <div className="recipe-list">
                 {filteredRecipes.map((recipe) => (
-                    <RecipeCard key={recipe.id} recipe={recipe} />
+                    <RecipeCard
+                        key={recipe.id}
+                        recipe={recipe}
+                    />
                 ))}
             </div>
         </div>

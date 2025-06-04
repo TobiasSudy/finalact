@@ -1,27 +1,32 @@
 import { useState } from "react";
 
-type Props = {
-    onRate: (rating: number) => void;
-};
+interface RatingProps {
+    value: number | null;
+    onChange: (value: number) => void;
+    max?: number;
+    className?: string;
+}
 
-function Rating({ onRate }: Props) {
+export function Rating({ value, onChange, max = 5, className }: RatingProps) {
     const [hovered, setHovered] = useState(0);
 
     return (
-        <div>
-            {[1, 2, 3, 4, 5].map((star) => (
-                <span
-                    key={star}
-                    style={{ cursor: "pointer", color: star <= hovered ? "#ffd700" : "#999" }}
-                    onMouseEnter={() => setHovered(star)}
-                    onMouseLeave={() => setHovered(0)}
-                    onClick={() => onRate(star)}
-                >
-          ★
-        </span>
-            ))}
+        <div className={`flex items-center ${className}`}>
+            {[...Array(max)].map((_, i) => {
+                const starValue = i + 1;
+                return (
+                    <button
+                        key={i}
+                        onClick={() => onChange(starValue)}
+                        className="text-2xl focus:outline-none"
+                        onMouseEnter={() => setHovered(starValue)}
+                        onMouseLeave={() => setHovered(0)}
+                        style={{ color: starValue <= (hovered || value || 0) ? "#ffd700" : "#999" }}
+                    >
+                        {starValue <= (hovered || value || 0) ? '★' : '☆'}
+                    </button>
+                );
+            })}
         </div>
     );
 }
-
-export default Rating;
