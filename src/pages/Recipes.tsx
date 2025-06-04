@@ -6,7 +6,7 @@ import SearchBar, { SearchFilterContainer } from "../components/SearchBar.tsx";
 import FilterPanel from "../components/FilterPanel.tsx";
 
 function Recipes() {
-    const [searchQuery, setSearchQuery] = useState<string| undefined>("");
+    const [searchQuery, setSearchQuery] = useState("");
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
     // Extract all unique tags from recipes
